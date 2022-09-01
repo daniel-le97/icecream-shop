@@ -1,0 +1,200 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Orbitron:wght@500&family=Poppins:wght@200&family=Roboto:ital,wght@1,300&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
+      integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css" integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
+  <body class="debug">
+    <header>
+      <div class="row bg-dark align-items-center justify-content-center">
+        <div class="col-6 h1 text-light text-center">I scream for IceCream</div>
+      </div>
+    </header>
+
+ 
+      <main class="hero-image">
+      <div class="container-fluid pt-4 ps-3">
+        <div class="row justify-content-between">
+          <!-- TODO CART AREA  -->
+          <div
+            class="col-md-5 bg-light rounded border border-2 border-dark ms-3"
+            style="height: 70vh"
+          >
+            <section class="row">
+              <div class="col-md-12 py-1 text-center" >
+                <h2>Receipt:</h2>
+                <button class="btn btn-danger" onclick="purchase()">Checkout</button>
+              </div>
+              <div class="col-md-6 py-1 d-flex justify-content-center">
+                <h3>Total:</h3>
+              </div>
+              <div class="col-md-6 py-1 text-center fs-4">
+                $<span id="total" class="fs-4">0</span>
+              </div>
+              <div id="cart" class="col-md-12" ">
+                <!-- Draw here TODO -->
+                <div class="row">
+                  <div class="col-4">product</div>
+                  <div class="col-4"> quantity</div>
+                  <div class="col-4">total</div>
+                </div>
+
+            </div>
+          </section>
+        </div>
+        
+        <div
+          class="col-md-6 bg-light d-flex me-4 rounded border border-2 border-dark"
+        >
+          <div class="container">
+            <section class="row">
+              <div class="col-md-12 text-center p-1"><h4 class="text-center">Flavors</h4></div>
+              <!-- SECTION FLAVOR/VESSEL/TOPPING ID's-->
+
+              <!-- <div id="ice-creams" class="col-md-12 d-flex p-2"></div> -->
+              
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Cookie Dough')">Buy</button>
+                  
+                </div>
+              </div>
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Vanilla')">Buy</button>
+                  
+                </div>
+              </div>
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Strawberry')">Buy</button>
+                  
+                </div>
+              </div>
+              <!-- NOTE start of vessels section -->
+              <div id="vessels" class="col-md-12 d-flex p-2">
+              <div class="card mx-2" >
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg"" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Cookie Dough')">Buy</button>
+                </div>
+              </div>
+
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="http://images.wbmason.com/350/L_JOY66050.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Cookie Dough')">Buy</button>
+                </div>
+              </div>
+              </div>
+              <div id="toppings" class="col-md-12 d-flex p-2">
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Cookie Dough')">Buy</button>
+                  
+                </div>
+              </div>
+              <div class="card mx-2">
+                <!-- NOTE onclick="addToCart()" ADD HERE -->
+                <img  src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Flavor:</h5>
+                  <h5 class="card-text">Price:</h5>
+                  <button class="btn btn-primary" onclick="addToCart('Cookie Dough')">Buy</button>
+                  
+                </div>
+              </div>
+              </div>
+              <!-- !SECTION -->
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/a2d3ad0e84.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="another.js"></script>
+  </body>
+</html>
